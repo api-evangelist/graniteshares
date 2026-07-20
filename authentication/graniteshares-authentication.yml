@@ -1,0 +1,30 @@
+generated: '2026-07-19'
+method: searched
+source: https://graniteshares.com/.well-known/openid-configuration
+docs: https://graniteshares.com/.well-known/openid-configuration
+note: >-
+  GraniteShares publishes no developer/API program. The only machine-readable
+  auth surface discovered is the OpenID Connect / OAuth 2.0 member-authentication
+  endpoint of the site's Umbraco Delivery API (issuer
+  https://bkgswebv2.azurewebsites.net/). This profiles that discovered surface,
+  not a first-party product API.
+summary:
+  types: [oauth2, openIdConnect]
+  oauth2_flows: [authorizationCode]
+  pkce: true
+  scopes: [openid, offline_access]
+schemes:
+- name: umbraco-member-oidc
+  type: openIdConnect
+  openIdConnectUrl: https://graniteshares.com/.well-known/openid-configuration
+  issuer: https://bkgswebv2.azurewebsites.net/
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://bkgswebv2.azurewebsites.net/umbraco/delivery/api/v1/security/member/authorize
+    tokenUrl: https://bkgswebv2.azurewebsites.net/umbraco/delivery/api/v1/security/member/token
+    code_challenge_methods: [plain, S256]
+    scopes:
+      openid: OpenID Connect subject identity
+      offline_access: Issue a refresh token
+  token_endpoint_auth_methods: [client_secret_basic, client_secret_post]
+  id_token_signing_alg: [RS256]
