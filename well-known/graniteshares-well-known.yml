@@ -1,0 +1,19 @@
+generated: '2026-07-19'
+method: searched
+source: live probe of https://graniteshares.com/.well-known/*
+host: https://graniteshares.com
+documents:
+- path: /.well-known/openid-configuration
+  status: 200
+  file: graniteshares-openid-configuration.json
+  note: OpenID Connect discovery for the Umbraco Delivery API member authentication (issuer https://bkgswebv2.azurewebsites.net/)
+- path: /.well-known/oauth-authorization-server
+  status: 200
+  file: graniteshares-oauth-authorization-server.json
+  note: RFC 8414 authorization-server metadata (identical to the OIDC discovery document)
+- path: /.well-known/security.txt
+  status: 404
+- path: /.well-known/api-catalog
+  status: 404
+- path: /.well-known/ai-plugin.json
+  status: 404
