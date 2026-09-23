@@ -2,18 +2,25 @@ generated: '2026-07-19'
 method: searched
 source: live probe of https://graniteshares.com/.well-known/*
 host: https://graniteshares.com
-documents:
-- path: /.well-known/openid-configuration
-  status: 200
-  file: graniteshares-openid-configuration.json
-  note: OpenID Connect discovery for the Umbraco Delivery API member authentication (issuer https://bkgswebv2.azurewebsites.net/)
-- path: /.well-known/oauth-authorization-server
-  status: 200
-  file: graniteshares-oauth-authorization-server.json
-  note: RFC 8414 authorization-server metadata (identical to the OIDC discovery document)
-- path: /.well-known/security.txt
-  status: 404
-- path: /.well-known/api-catalog
-  status: 404
-- path: /.well-known/ai-plugin.json
-  status: 404
+hosts:
+- host: https://graniteshares.com
+  documents:
+  - path: /.well-known/openid-configuration
+    status: 200
+    file: graniteshares-openid-configuration.json
+    note: OpenID Connect discovery for the Umbraco Delivery API member authentication (issuer https://bkgswebv2.azurewebsites.net/)
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    file: graniteshares-oauth-authorization-server.json
+    note: RFC 8414 authorization-server metadata (identical to the OIDC discovery document)
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+x-shape-fix:
+  converted: '2026-08-20'
+  from: documents
+  note: Rewritten into hosts[] -> documents[], the only shape well_known_docs() in score.rb reads. A served
+    .well-known surface recorded in any other shape scores as absent.
