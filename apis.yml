@@ -53,7 +53,7 @@ tags:
 - Asset Management
 - Investment
 - Leveraged ETFs
-- Financial-Services
+- Financial Services
 tags_raw:
 - Company
 - Fintech
@@ -62,6 +62,7 @@ tags_raw:
 - Investments
 - Leveraged ETFs
 - Financial Services
+- Financial-Services
 apis: []
 maintainers:
 - FN: Kin Lane
